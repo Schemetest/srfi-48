@@ -26,7 +26,7 @@
 (expect "  12.346" (format "~8,3F" 12.3456))
 (expect "123.346" (format "~6,3F" 123.3456))
 (expect "123.346" (format "~4,3F" 123.3456))
-;(expect "0.000+1.949i" (format "~8,3F" (sqrt -3.8)))
+(expect "0.000+1.949i" (format "~8,3F" (sqrt -3.8)))
 (expect " 32.00" (format "~6,2F" 32))
 (expect "    32" (format "~6F" 32))
 ;(expect "   32." (format "~6F" 32.)) ;; "  32.0" OK
@@ -42,9 +42,10 @@
 (expect "      1.2345" (format "~12F" 1.2345))
 (expect "        1.23" (format "~12,2F" 1.2345))
 (expect "       1.234" (format "~12,3F" 1.2345))
-;(expect "        0.000+1.949i" (format "~20,3F" (sqrt -3.8)))
-;(expect "0.000+1.949i" (format "~8,3F" (sqrt -3.8)))
+(expect "        0.000+1.949i" (format "~20,3F" (sqrt -3.8)))
+(expect "0.000+1.949i" (format "~8,3F" (sqrt -3.8)))
 (expect "345670000000.00" (format "~8,2F" 3.4567e11))
+;; incorrect mutation of literal list in example
 ; (expect "#1=(a b c . #1#)"
 ;         (format "~w" (let ( (c '(a b c)) ) (set-cdr! (cddr c) c) c)))
 (expect "
@@ -84,7 +85,7 @@
 (expect "    32"     (format "~6F" 32))
 (expect "   32.00"   (format "~8,2F" 32))
 (expect "4321.00"    (format "~1,2F" 4321))
-;(expect "0.00+1.97i" (format "~1,2F" (sqrt -3.9)))
+(expect "0.00+1.97i" (format "~1,2F" (sqrt -3.9)))
 (expect "3200000.0"  (format "~8F" 32e5))
 ;(expect "   3.2e6"   (format "~8F" 32e5))
 (expect "<string>"   (format "~h") (lambda (e r) (string? r)))
@@ -98,9 +99,9 @@
 (expect "3  2 2  3 \n" (format #f "~a ~? ~a ~%" 3 " ~s ~s " '(2 2) 3))
 ;; incorrect mutation of literal list in example
 ;(expect "#1=(a b c . #1#)" (format "~w" (let ( (c '(a b c)) ) (set-cdr! (cddr c) c) c)))
-;(expect "#0=(a b c . #0#)" (format "~w" (let ( (c (list 'a 'b 'c)) ) (set-cdr! (cddr c) c) c)))
+(expect "#0=(a b c . #0#)" (format "~w" (let ( (c (list 'a 'b 'c)) ) (set-cdr! (cddr c) c) c)))
 (expect "   32.00"   (format "~8,2F" 32))
-;(expect "0.000+1.949i" (format "~8,3F" (sqrt -3.8)))
+(expect "0.000+1.949i" (format "~8,3F" (sqrt -3.8)))
 ;(expect " 3.45e11"   (format "~8,2F" 3.4567e11))
 (expect "345670000000.00" (format "~8,2F" 3.4567e11))
 (expect " 0.333"     (format "~6,3F" 1/3))
@@ -221,9 +222,9 @@
 (expect "0.0"        (format "~1,1F" .01))
 
 
-;(test-section "~F error")
-;(expect "<error>" (guard (e (else "<error>")) (format "~-1F" 1)))
-;(expect "<error>" (guard (e (else "<error>")) (format "~1,-1F" 1)))
+(test-section "~F error")
+(expect "<error>" (guard (e (else "<error>")) (format "~-1F" 1)))
+(expect "<error>" (guard (e (else "<error>")) (format "~1,-1F" 1)))
 
 
 (test-section "from mailing list 2004-05-27")
