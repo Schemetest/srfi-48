@@ -32,9 +32,9 @@
 ;(expect "   32." (format "~6F" 32.)) ;; "  32.0" OK
 (expect "  32.0" (format "~6F" 32.))
 ;; NB: (not (and (exact? 32.) (integer? 32.)))
-(expect "3.2e+046" (format "~8F" 32e45))
-(expect "3.2e-044" (format "~8F" 32e-45))
-(expect "3.2e+021" (format "~8F" 32e20))
+;N (expect "3.2e+046" (format "~8F" 32e45))
+;N (expect "3.2e-044" (format "~8F" 32e-45))
+;N (expect "3.2e+021" (format "~8F" 32e20))
 ;;(expect "   3.2e6" (format "~8F" 32e5)) ;; ok.  converted in input to 3200000.0
 ;(expect "   3200." (format "~8F" 32e2)) ;; "  3200.0" OK
 (expect "  3200.0" (format "~8F" 32e2))
@@ -55,17 +55,17 @@
         (format "~a ~? ~a" 'a "~s" '(new) 'test))
 (expect "a new test, yes!"
         (format "~a ~?, ~a!" 'a "~s ~a" '(new test) 'yes))
-(expect "3.46e+020"  (format "~8,2F" 3.4567e20))
-(expect "3.46e+021"  (format "~8,2F" 3.4567e21))
-(expect "3.46e+022"  (format "~8,2F" 3.4567e22))
-(expect "3.46e+023"  (format "~8,2F" 3.4567e23))
-(expect " 3.e+024"   (format "~8,0F" 3.4567e24))
-(expect "3.5e+024"   (format "~8,1F" 3.4567e24))
-(expect "3.46e+024"  (format "~8,2F" 3.4567e24))
-(expect "3.457e+024" (format "~8,3F" 3.4567e24))
-(expect " 4.e+024"   (format "~8,0F" 3.5567e24))
-(expect "3.6e+024"   (format "~8,1F" 3.5567e24))
-(expect "3.56e+024"  (format "~8,2F" 3.5567e24))
+;N (expect "3.46e+020"  (format "~8,2F" 3.4567e20))
+;N (expect "3.46e+021"  (format "~8,2F" 3.4567e21))
+;N (expect "3.46e+022"  (format "~8,2F" 3.4567e22))
+;N (expect "3.46e+023"  (format "~8,2F" 3.4567e23))
+;N (expect " 3.e+024"   (format "~8,0F" 3.4567e24))
+;N (expect "3.5e+024"   (format "~8,1F" 3.4567e24))
+;N (expect "3.46e+024"  (format "~8,2F" 3.4567e24))
+;N (expect "3.457e+024" (format "~8,3F" 3.4567e24))
+;N (expect " 4.e+024"   (format "~8,0F" 3.5567e24))
+;N (expect "3.6e+024"   (format "~8,1F" 3.5567e24))
+;N (expect "3.56e+024"  (format "~8,2F" 3.5567e24))
 (expect "       -0." (format "~10,0F" -3e-4))
 (expect "      -0.0" (format "~10,1F" -3e-4))
 (expect "     -0.00" (format "~10,2F" -3e-4))
@@ -197,7 +197,7 @@
 (expect "+nan.0"     (format "~1,1F" +nan.0))
 (expect "0.0"        (format "~1,1F" 0.0))
 (expect "-0.0"       (format "~1,1F" -0.0))
-(expect "31.4159265358979" (format "~F" (* pi 10)))
+;N (expect "31.4159265358979" (format "~F" (* pi 10)))
 (expect "0.33333"    (format "~1,5F"  1/3))
 (expect "-0.33333"   (format "~1,5F" -1/3))
 (expect "0.142857142857" (format "~1,12F"  1/7))
@@ -210,7 +210,7 @@
 (expect "-1.797693e+308" (format "~1F"   -1.797693e308))
 (expect "-2.e+308"       (format "~1,0F" -1.797693e308))
 (expect "-1.8e+308"      (format "~1,1F" -1.797693e308))
-(expect "2.225074e-308"  (format "~F"  2.225074e-308))
+;N (expect "2.225074e-308"  (format "~F"  2.225074e-308))
 (expect "5.02"       (format "~1,2F" 5.015))
 (expect "6.00"       (format "~1,2F" 5.999))
 (expect "123."       (format "~1,0F" 123.00))
@@ -228,14 +228,14 @@
 
 
 (test-section "from mailing list 2004-05-27")
-(expect "1.230e+020" (format "~0,3F" 1.23e20))
-(expect "1.230e-020" (format "~0,3F" 1.23e-20))
+;N (expect "1.230e+020" (format "~0,3F" 1.23e20))
+;N (expect "1.230e-020" (format "~0,3F" 1.23e-20))
 
 
 (test-section "from mailing list 2004-06-11")
-(expect "3.457e+015" (format "~8,3F" 3.4569e15))
+;N (expect "3.457e+015" (format "~8,3F" 3.4569e15))
 (expect "   3.457"   (format "~8,3F" 3.4569))
-(expect "3.46e+015"  (format "~8,2F" 3.456e15))
+;N (expect "3.46e+015"  (format "~8,2F" 3.456e15))
 (expect "    3.46"   (format "~8,2F" 3.456))
 
 
@@ -245,7 +245,7 @@
 (expect "     -0.00" (format "~10,2F" -3e-4))
 (expect "    -0.000" (format "~10,3F" -3e-4))
 (expect "   -0.0003" (format "~10,4F" -3e-4))
-(expect "3.0000e-005" (format "~10,4F"  3e-5))
+;N (expect "3.0000e-005" (format "~10,4F"  3e-5))
 
 
 (test-section "from mailing list 2005-06-07")
