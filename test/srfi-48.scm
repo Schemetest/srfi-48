@@ -16,8 +16,8 @@
 ;; (not including such as '#', 'e', '.', '/') if the input is an positive
 ;; integer or zero.
 ;; 'real-number->string' is used when the digits of ~F is not specified.
-(define (inexact-number->string x) (number->string (exact->inexact x)))
-(define (exact-number->string x)   (number->string (inexact->exact x)))
+(define (inexact-number->string x) (number->string (inexact x)))
+(define (exact-number->string x)   (number->string (exact x)))
 (define (real-number->string x)    (number->string x))
 
 ;; FORMAT
